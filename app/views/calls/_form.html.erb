@@ -1,0 +1,54 @@
+<%= form_for(call) do |f| %>
+  <% if call.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(call.errors.count, "error") %> prohibited this call from being saved:</h2>
+
+      <ul>
+      <% call.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :call_date, I18n.t('call_date') %><br>
+    <%= f.datetime_select :call_date %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :details, I18n.t('details') %><br>
+    <%= f.text_area :details %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :interest_level, I18n.t('interest_level') %><br>
+    <%= f.select(:interest_level, %w(1 2 3 4 5), {include_blank: true}) %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :next_call, I18n.t('next_call') %><br>
+    <%= f.date_select :next_call %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :annotation, I18n.t('annotation') %><br>
+    <%= f.text_field :annotation %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :client_id, I18n.t('client') %><br>
+    <%= f.collection_select(:client_id, Client.all, :id, :company_name, prompt: true) %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br>
+<% end %>

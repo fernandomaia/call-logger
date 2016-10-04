@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  call_date: MyString
+  details: MyString
+  interest_level: MyString
+  next_call: MyString
+  annotation: MyString
+  client: one
+
+two:
+  call_date: MyString
+  details: MyString
+  interest_level: MyString
+  next_call: MyString
+  annotation: MyString
+  client: two

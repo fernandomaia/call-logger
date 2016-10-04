@@ -1,0 +1,27 @@
+pt-BR:
+  appointments: Compromissos
+  clients: Clientes
+  calls: Ligações
+  new_appointment: Novo Compromisso
+  client: Cliente
+  title: Título
+  scheduled_date: Data Agendada
+  description: Descrição
+  submit: Enviar
+  new_call: Nova Ligação
+  call_date: Data da Ligação
+  details: Detalhes
+  interest_level: Nível de Interesse
+  next_call: Próxima Ligação
+  annotation: Anotação
+  client_company_name: Cliente
+  new_client: Novo Cliente
+  company_name: Nome da Empresa
+  address: Endereço
+  contact_person: Pessoa de Contato
+  phone_number: Telefone
+  phone_numbers: Telefones
+  mobile_number: Celular
+  edit: Editar
+  back: Voltar
+  logout: Sair

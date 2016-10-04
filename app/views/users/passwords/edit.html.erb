@@ -1,0 +1,75 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag    params[:controller] %>
+  <%= javascript_include_tag params[:controller] %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<%= stylesheet_link_tag 'bootstrap' %>
+<%= stylesheet_link_tag 'sidebar' %>
+<%= stylesheet_link_tag 'font-awesome' %>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SAFETY</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to I18n.t('logout'), destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li>
+              <%= link_to I18n.t('appointments'), appointments_path %>
+            </li>
+            <li>
+              <%= link_to I18n.t('clients'), clients_path %>
+            </li>
+            <li>
+              <%= link_to I18n.t('calls'), calls_path %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Change your password %></h1>
+
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <%= f.hidden_field :reset_password_token %>
+
+            <div class="field">
+              <%= f.label :password, "New password" %><br />
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+              <% end %>
+              <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation, "Confirm new password" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Change my password" %>
+            </div>
+          <% end %>
+
+          <%= render "users/shared/links" %>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
