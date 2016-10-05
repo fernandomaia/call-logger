@@ -5,7 +5,9 @@ class CallsController < ApplicationController
   # GET /calls
   # GET /calls.json
   def index
-    @calls = Call.all
+    @q = Call.ransack(params[:q])
+    @calls = @q.result.includes(:client)
+    #@calls = Call.all
   end
 
   # GET /calls/1
