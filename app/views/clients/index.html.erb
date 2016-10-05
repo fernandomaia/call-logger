@@ -50,6 +50,7 @@
               <thead>
                 <tr role="row">
                   <th><%= sort_link(@q, :company_name) %></th>
+                  <th><%= sort_link(@q, :interest_level) %></th>
                   <th><%= sort_link(@q, :contact_person) %></th>
                   <th><%= sort_link(@q, :phone_number) %></th>
                   <th><%= sort_link(@q, :email) %></th>
@@ -60,6 +61,7 @@
                 <% @clients.each do |client| %>
                   <tr>
                     <td><%= client.company_name %></td>
+                    <td><%= client.interest_level %></td>
                     <td><%= client.contact_person %></td>
                     <td><%= client.phone_number %></td>
                     <td><%= client.email %></td>

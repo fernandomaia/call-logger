@@ -24,12 +24,6 @@
   <br>
 
   <div class="field">
-    <%= f.label :interest_level, I18n.t('interest_level') %><br>
-    <%= f.select(:interest_level, %w(1 2 3 4 5), {include_blank: true}) %>
-  </div>
-  <br>
-
-  <div class="field">
     <%= f.label :next_call, I18n.t('next_call') %><br>
     <%= f.date_select :next_call %>
   </div>

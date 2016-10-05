@@ -50,7 +50,6 @@
               <thead>
                 <tr>
                   <th><%= sort_link(@q, :call_date) %></th>
-                  <th><%= sort_link(@q, :interest_level) %></th>
                   <th><%= sort_link(@q, :next_call) %></th>
                   <th><%= sort_link(@q, :company_name) %></th>
                   <th colspan="3"></th>
@@ -61,7 +60,6 @@
                 <% @calls.each do |call| %>
                   <tr>
                     <td><%= call.call_date.strftime("%d/%m/%Y %H:%M") %></td>
-                    <td><%= call.interest_level %></td>
                     <td><%= call.next_call.strftime("%d/%m/%Y") %></td>
                     <td><%= call.client.company_name %></td>
                     <td><%= link_to 'Mostrar', call %></td>

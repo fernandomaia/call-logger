@@ -2414,3 +2414,175 @@ Processing by ClientsController#index as HTML
 Completed 200 OK in 152ms (Views: 135.3ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/calls" for 10.0.2.2 at 2016-10-05 17:36:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CallsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering calls/index.html.erb within layouts/application
+  [1m[36mCall Load (0.8ms)[0m  [1m[34mSELECT `calls`.* FROM `calls`[0m
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1[0m
+  Rendered calls/index.html.erb within layouts/application (847.4ms)
+Completed 200 OK in 1052ms (Views: 951.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/calls?q%5Bs%5D=next_call+asc" for 10.0.2.2 at 2016-10-05 17:37:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallsController#index as HTML
+  Parameters: {"q"=>{"s"=>"next_call asc"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering calls/index.html.erb within layouts/application
+  [1m[36mCall Load (0.3ms)[0m  [1m[34mSELECT `calls`.* FROM `calls` ORDER BY `calls`.`next_call` ASC[0m
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1[0m
+  Rendered calls/index.html.erb within layouts/application (55.9ms)
+Completed 200 OK in 146ms (Views: 120.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/calls?q%5Bs%5D=next_call+desc" for 10.0.2.2 at 2016-10-05 17:37:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallsController#index as HTML
+  Parameters: {"q"=>{"s"=>"next_call desc"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering calls/index.html.erb within layouts/application
+  [1m[36mCall Load (0.5ms)[0m  [1m[34mSELECT `calls`.* FROM `calls` ORDER BY `calls`.`next_call` DESC[0m
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1[0m
+  Rendered calls/index.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 138ms (Views: 118.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/clients" for 10.0.2.2 at 2016-10-05 17:37:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ClientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT `clients`.* FROM `clients`[0m
+  Rendered clients/index.html.erb within layouts/application (65.0ms)
+Completed 200 OK in 147ms (Views: 124.9ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('4436034163740447240', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddInterestLevelToClients (20161005175206)
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE `clients` ADD `interest_level` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161005175206')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveInterestLevelFromCalls (20161005175343)
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE `calls` DROP `interest_level`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161005175343')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('4436034163740447240')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSHOW CREATE TABLE `appointments`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'appointments'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `calls`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'calls'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `clients`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'clients'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'safety_development'
+  AND fk.table_name = 'appointments'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'safety_development'
+  AND fk.table_name = 'calls'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'safety_development'
+  AND fk.table_name = 'clients'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'safety_development'
+  AND fk.table_name = 'users'
+[0m
+Started GET "/appointments" for 10.0.2.2 at 2016-10-05 18:02:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AppointmentsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments`[0m
+  Rendered /home/vagrant/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/simple_calendar-2.1.5/app/views/simple_calendar/_month_calendar.html.erb (12.5ms)
+  Rendered appointments/index.html.erb within layouts/application (523.1ms)
+Completed 200 OK in 675ms (Views: 616.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/clients" for 10.0.2.2 at 2016-10-05 18:02:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ClientsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT `clients`.* FROM `clients`[0m
+  Rendered clients/index.html.erb within layouts/application (82.7ms)
+Completed 200 OK in 217ms (Views: 156.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/calls" for 10.0.2.2 at 2016-10-05 18:02:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering calls/index.html.erb within layouts/application
+  [1m[36mCall Load (0.3ms)[0m  [1m[34mSELECT `calls`.* FROM `calls`[0m
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1[0m
+  Rendered calls/index.html.erb within layouts/application (108.6ms)
+Completed 200 OK in 218ms (Views: 169.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/calls/new" for 10.0.2.2 at 2016-10-05 18:02:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CallsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering calls/new.html.erb within layouts/application
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT `clients`.* FROM `clients`[0m
+  Rendered calls/_form.html.erb (17.4ms)
+  Rendered calls/new.html.erb within layouts/application (72.8ms)
+Completed 200 OK in 164ms (Views: 139.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/clients" for 10.0.2.2 at 2016-10-05 18:02:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ClientsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clients/index.html.erb within layouts/application
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT `clients`.* FROM `clients`[0m
+  Rendered clients/index.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 181ms (Views: 160.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/clients/new" for 10.0.2.2 at 2016-10-05 18:02:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ClientsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clients/new.html.erb within layouts/application
+  Rendered clients/_form.html.erb (7.6ms)
+  Rendered clients/new.html.erb within layouts/application (64.3ms)
+Completed 200 OK in 146ms (Views: 125.8ms | ActiveRecord: 0.3ms)
+
+
