@@ -13,15 +13,19 @@ class CallsController < ApplicationController
   # GET /calls/1
   # GET /calls/1.json
   def show
+    @call = Call.find(params[:id])
   end
 
   # GET /calls/new
   def new
     @call = Call.new
+    @clients = Client.all
   end
 
   # GET /calls/1/edit
   def edit
+    @call = Call.find(params[:id])
+    @clients = Client.all
   end
 
   # POST /calls

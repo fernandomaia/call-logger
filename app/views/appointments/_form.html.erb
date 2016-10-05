@@ -31,7 +31,7 @@
 
   <div class="field">
     <%= f.label :client_id, I18n.t('client') %><br>
-    <%= f.collection_select(:client_id, Client.all, :id, :company_name, prompt: true) %>
+    <%= f.collection_select(:client_id, @clients, :id, :company_name, prompt: true) %>
   </div>
   <br>
 

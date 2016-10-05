@@ -11,15 +11,19 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    @appointment = Appointment.find(params[:id])
   end
 
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+    @clients = Client.all
   end
 
   # GET /appointments/1/edit
   def edit
+    @appointment = Appointment.find(params[:id])
+    @clients = Client.all
   end
 
   # POST /appointments
