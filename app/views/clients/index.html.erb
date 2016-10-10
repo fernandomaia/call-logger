@@ -49,10 +49,10 @@
             <table class="table table-striped">
               <thead>
                 <tr role="row">
-                  <th><%= sort_link(@q, :company_name) %></th>
-                  <th><%= sort_link(@q, :interest_level) %></th>
-                  <th><%= sort_link(@q, :contact_person) %></th>
-                  <th><%= sort_link(@q, :phone_number) %></th>
+                  <th><%= sort_link(@q, :company_name, I18n.t(:company_name)) %></th>
+                  <th><%= sort_link(@q, :interest_level, I18n.t(:interest_level)) %></th>
+                  <th><%= sort_link(@q, :contact_person, I18n.t(:contact_person)) %></th>
+                  <th><%= sort_link(@q, :phone_number, I18n.t(:phone_number)) %></th>
                   <th><%= sort_link(@q, :email) %></th>
                   <th colspan="3"></th>
                 </tr>

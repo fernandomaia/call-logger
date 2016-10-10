@@ -49,9 +49,9 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th><%= sort_link(@q, :call_date) %></th>
-                  <th><%= sort_link(@q, :next_call) %></th>
-                  <th><%= sort_link(@q, :company_name) %></th>
+                  <th><%= sort_link(@q, :call_date, I18n.t(:call_date)) %></th>
+                  <th><%= sort_link(@q, :next_call, I18n.t(:next_call)) %></th>
+                  <th><%= sort_link(@q, :company_name, I18n.t(:company_name)) %></th>
                   <th colspan="3"></th>
                 </tr>
               </thead>
