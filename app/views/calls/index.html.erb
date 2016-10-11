@@ -61,7 +61,7 @@
                   <tr>
                     <td><%= call.call_date.strftime("%d/%m/%Y %H:%M") %></td>
                     <td><%= call.next_call.strftime("%d/%m/%Y") %></td>
-                    <td><%= call.client.company_name %></td>
+                    <td><%= call.client.blank? ? "-" : call.client.company_name %></td>
                     <td><%= link_to 'Mostrar', call %></td>
                     <td><%= link_to 'Editar', edit_call_path(call) %></td>
                     <td><%= link_to 'Excluir', call, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
