@@ -1,5 +1,6 @@
 class CallsController < ApplicationController
   before_action :set_call, only: [:show, :edit, :update, :destroy]
+  before_action :set_client, only: [:new, :edit, :update]
   before_action :authenticate_user!
 
   # GET /calls
@@ -75,5 +76,9 @@ class CallsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def call_params
       params.require(:call).permit(:call_date, :details, :interest_level, :next_call, :annotation, :client_id)
+    end
+
+    def set_client
+      @clients = Client.all
     end
 end

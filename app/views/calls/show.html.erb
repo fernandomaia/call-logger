@@ -61,7 +61,7 @@
 
           <p>
             <strong><%= I18n.t('client') %>:</strong>
-            <%= @call.client.company_name %>
+            <%= @call.client.blank? ? "-" : @call.client.company_name %>
           </p>
 
           <%= link_to I18n.t('edit'), edit_call_path(@call) %> |
